@@ -13,8 +13,8 @@ class WelcomePage extends Component {
         console.log(this.props.history);
         console.log(this.props.location);
         console.log('pathname : ', this.props.location.pathname);
-        const url = new URL(this.props.location.pathname);
-        const searchParams = new URLSearchParams(url.search);
+        // const url = new URL(this.props.location);
+        const searchParams = new URLSearchParams(this.props.location.search);
         if (searchParams.has('access_token')) {
             console.log('access token exist.');
             console.log(searchParams.get('access_token'));
