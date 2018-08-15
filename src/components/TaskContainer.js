@@ -5,9 +5,15 @@ import ResultBox from './ResultBox';
 import UserInfoForm from './UserInfoForm';
 import Reviews from './Reviews';
 import ReviewForm from './ReviewForm';
-import {getPartnerName, getUsername} from "../selectors";
+import {getPartnerName, getUsername, getAccessToken} from "../selectors";
+
+import * as actions from '../actions';
 
 class TaskContainer extends Component {
+
+    async componentDidMount() {
+        await this.props.fetchTasks(this.props.accessToken);
+    }
 
     render() {
         return (
@@ -37,10 +43,11 @@ class TaskContainer extends Component {
 
 const mapStateToProps = state => ({
     username : getUsername(state),
-    partnerName : getPartnerName(state)
+    partnerName : getPartnerName(state),
+    accessToken : getAccessToken(state)
 });
 
-export default connect(mapStateToProps, null)(TaskContainer);
+export default connect(mapStateToProps, actions)(TaskContainer);
 
 
 

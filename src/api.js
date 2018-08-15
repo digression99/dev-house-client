@@ -2,8 +2,6 @@
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 
-import { getAccessToken } from './selectors';
-
 const fakeDatabase = {
     tasks : [
         {
