@@ -12,15 +12,9 @@ import TaskContainer from './components/TaskContainer';
 class App extends Component {
     constructor(props) {
         super(props);
-
-        this.notify = this.notify.bind(this);
     }
 
     async componentDidMount() {
-    }
-
-    notify(message) {
-        toast(message);
     }
 
     render() {
@@ -30,9 +24,9 @@ class App extends Component {
                     <Header/>
                 </div>
                 <div>
-                    <button onClick={() => this.notify("kim!")}>Click</button>
                     {this.props.username ? <TaskContainer /> : <Login />}
                 </div>
+                <ToastContainer />
             </div>
         );
     }

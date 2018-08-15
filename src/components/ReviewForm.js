@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from'react-redux';
 import * as actions from '../actions';
+import {getTasksByUsername} from "../selectors";
+import { toast } from 'react-toastify';
 
 class ReviewForm extends Component {
 
@@ -16,19 +18,16 @@ class ReviewForm extends Component {
         this.setState({reviewText : event.target.value});
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log('event : ', event);
-        // alert('submitted form text : ', event.target.value);
-        console.log('submitted form text : ', event.target.review.value);
-        this.setState({reviewText : ''});
+    async handleSubmit(e) {
+        e.preventDefault();
 
-        this.props.addReview(event.target.review.value, "kimilsik", [{
-            username : "kimilsik",
-            taskName : "blabla",
-            comment : "comment",
-            timestamp : 1000
-        }]);
+        this.setState({reviewText : ''});
+        try {
+            await this.props.saveReview(this.props.username, e.target.review.value, this.props.tasks);
+            toast('successfully saved your review!');
+        } catch (e) {
+            toast('failed to save your review...');
+        }
     }
 
     render() {
@@ -42,6 +41,11 @@ class ReviewForm extends Component {
     }
 }
 
-export default connect(null, actions)(ReviewForm);
+const mapStateToProps = state => ({
+    username : state.auth.username,
+    tasks : getTasksByUsername(state, state.auth.username)
+});
+
+export default connect(mapStateToProps, actions)(ReviewForm);
 
 

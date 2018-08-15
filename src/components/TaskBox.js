@@ -13,7 +13,7 @@ class TaskBox extends Component {
             <div className="list-item-container">
                 <ul className="collection">
                     {this.props.tasks.map(task =>
-                        <li className="collection-item center-align" key={parseInt(Math.random() * 10000)}>
+                        <li className="collection-item center-align" key={task.id}>
                             <Task {...task} />
                         </li>
                     )}

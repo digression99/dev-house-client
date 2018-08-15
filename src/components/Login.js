@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-
-import { getUsername} from "../selectors";
+import { toast } from 'react-toastify';
+import { getUsername } from "../selectors";
 
 class Login extends Component {
 
@@ -10,24 +10,36 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            username : ""
+            username : "",
+            password : ""
         };
 
-        this.onInputChange = this.onInputChange.bind(this);
+        this.onUsernameInputChange = this.onUsernameInputChange.bind(this);
+        this.onPasswordInputChange = this.onPasswordInputChange.bind(this);
         this.onLogin = this.onLogin.bind(this);
         this.onLogout = this.onLogout.bind(this);
     }
 
-    onInputChange(event) {
+    onUsernameInputChange(event) {
         this.setState({username : event.target.value});
     }
 
-    async onLogin(event) {
-        this.props.setUser(this.state.username);
-        await this.props.fetchTasks(this.state.username);
+    onPasswordInputChange(event) {
+        this.setState({password : event.target.value});
     }
 
-    onLogout(event) {
+    async onLogin() {
+        try {
+            await this.props.userLogin(this.state.username, this.state.password);
+            await this.props.fetchTasks(this.state.username);
+            toast('logged in.');
+        } catch (e) {
+            toast('no user found.');
+            this.setState({password : ''});
+        }
+    }
+
+    onLogout() {
         this.props.unsetUser();
     }
 
@@ -37,7 +49,8 @@ class Login extends Component {
                 <div className="col s6">
                     {!this.props.username ?
                         <div>
-                            <input value={this.state.username} onChange={this.onInputChange} type="text" name="username" />
+                            <input value={this.state.username} onChange={this.onUsernameInputChange} type="text" name="username" />
+                            <input value={this.state.password} onChange={this.onPasswordInputChange} type="password" name="password" />
                             <button onClick={this.onLogin}>Login</button>
                         </div>
                         : <button onClick={this.onLogout}>Logout</button>

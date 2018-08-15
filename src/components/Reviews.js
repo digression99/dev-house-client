@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Task from './Task';
+import TaskBox from './TaskBox';
 
 class Reviews extends Component {
 
@@ -16,18 +16,15 @@ class Reviews extends Component {
                 <div className="section">
                     <ul className="collection">
                         {this.props.reviews.map(review => {
+                            console.log('review : ', review);
                             return (
-                                <li className="row" key={parseInt(Math.random() * 10000)}>
+                                <li className="row" key={review.id}>
                                     <div className="col s6">
                                         <div>{review.username}</div>
                                         <div>{review.text}</div>
                                     </div>
                                     <div className="col s6">
-                                        <ul className="collection">
-                                            {review.tasks.map(task => <li key={task.timestamp}>
-                                                <Task {...task} />
-                                            </li>)}
-                                        </ul>
+                                        <TaskBox tasks={review.tasks}/>
                                     </div>
                                 </li>
                             );

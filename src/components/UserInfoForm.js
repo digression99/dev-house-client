@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import * as actions from '../actions';
 
@@ -22,7 +23,12 @@ class UserInfoForm extends Component {
 
     async onInputSubmit() {
         console.log('fetching...');
-        await this.props.fetchUserInfo(this.state.partnerName);
+        try {
+            await this.props.fetchUserInfo(this.state.partnerName);
+            toast(`${this.state.partnerName} found!!`);
+        } catch (e) {
+            toast('no partner found.');
+        }
     }
 
     render() {
