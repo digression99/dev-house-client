@@ -19,7 +19,7 @@ export const unsetUser = () => ({ type : UNSET_USER });
 const receiveTasks = (tasks) => ({ type : RECEIVE_TASKS, payload : { tasks } });
 const receiveReviews = (reviews) => ({ type : RECEIVE_REVIEWS, payload : reviews });
 
-const receiveUserInfo = (username, tasks) => ({ type : RECEIVE_USER_INFO, payload : { username, tasks } });
+export const receiveUserInfo = (username, tasks) => ({ type : RECEIVE_USER_INFO, payload : { username, tasks } });
 const failUserInfo = () => ({ type : FAIL_USER_INFO });
 
 export const succeedSaveReview = (data) => ({ type : SUCCEED_SAVE_REVIEW, payload : data });
