@@ -43,7 +43,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated : !!state.auth.username
+    isAuthenticated : !!state.auth.accessToken
 });
 
 export default compose(
