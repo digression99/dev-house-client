@@ -23,7 +23,7 @@ const failUserInfo = () => ({ type : FAIL_USER_INFO });
 
 export const succeedSaveReview = (data) => ({ type : SUCCEED_SAVE_REVIEW, payload : data });
 
-export const fetchTasks = () => (store, dispatch) => api.fetchTasks(store.getState()).then(data => dispatch(receiveTasks(data)));
+export const fetchTasks = (accessToken) => dispatch => api.fetchTasks(accessToken).then(data => dispatch(receiveTasks(data)));
 export const fetchReviews = (username) => dispatch => api.fetchReviews(username).then(data => dispatch(receiveReviews(data)));
 
 export const fetchUserInfo = (username) => dispatch => api.fetchUserInfo(username).then(data => {
