@@ -15,28 +15,33 @@ const preloadedState = {
         {
             username: "kimilsik",
             text: "my day sucks",
+            tasks : [{
+                username: "bb",
+                taskName: "running",
+                comment: "fuck",
+                timestamp: 1010
+            }]
         }
     ],
     tasks : [{
-        user: "bb",
+        username: "bb",
         taskName: "running",
         comment: "fuck",
         timestamp: 1010
     },
         {
-            user: "aa",
+            username: "aa",
             taskName: "running",
             comment: "fuck",
             timestamp: 1020
         },
         {
-            user: "ss",
+            username: "ss",
             taskName: "running",
             comment: "fuck",
             timestamp: 1030
         }]
 };
-
 
 ReactDOM.render(
     <Provider store={createStore(reducers, preloadedState)}>

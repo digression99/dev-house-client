@@ -50,7 +50,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getTasks : () => dispatch(getTasks())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

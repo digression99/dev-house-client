@@ -13,21 +13,29 @@ class Reviews extends Component {
         return (
             <div>
                 <h1>Reviews.</h1>
-                <ul className="collection">
-                    {this.props.reviews.map(review => {
-                        return (
-                            <li>
-                                <div>{review.username}</div>
-                                <div>{review.text}</div>
-                                <div>
-                                    {/*<ul className="collection">*/}
-                                        {/*{review.tasks.map(task => <Task {...task} />)}*/}
-                                    {/*</ul>*/}
-                                </div>
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div className="section">
+                    <ul className="collection">
+                        {this.props.reviews.map(review => {
+                            return (
+                                <li className="row" key={parseInt(Math.random() * 10000)}>
+                                    <div className="col s6">
+                                        <div>{review.username}</div>
+                                        <div>{review.text}</div>
+                                    </div>
+                                    <div className="col s6">
+                                        <ul className="collection">
+                                            {review.tasks.map(task => <li key={task.timestamp}>
+                                                <Task {...task} />
+                                            </li>)}
+                                        </ul>
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <div>
+                    </div>
+                </div>
             </div>
         );
     }

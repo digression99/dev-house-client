@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from'react-redux';
+import * as actions from '../actions';
 
 class ReviewForm extends Component {
 
@@ -13,7 +14,6 @@ class ReviewForm extends Component {
 
     handleChange(event) {
         this.setState({reviewText : event.target.value});
-
     }
 
     handleSubmit(event) {
@@ -22,6 +22,13 @@ class ReviewForm extends Component {
         // alert('submitted form text : ', event.target.value);
         console.log('submitted form text : ', event.target.review.value);
         this.setState({reviewText : ''});
+
+        this.props.addReview(event.target.review.value, "kimilsik", [{
+            username : "kimilsik",
+            taskName : "blabla",
+            comment : "comment",
+            timestamp : 1000
+        }]);
     }
 
     render() {
@@ -35,8 +42,6 @@ class ReviewForm extends Component {
     }
 }
 
-
-
-export default ReviewForm;
+export default connect(null, actions)(ReviewForm);
 
 
