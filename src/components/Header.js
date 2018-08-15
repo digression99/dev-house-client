@@ -4,7 +4,13 @@ class Header extends Component {
 
     render() {
         return (
-            <header>Dev House</header>
+            <div>
+                <nav>
+                    <div className="nav-wrapper">
+                        <a href="#" className="brand-logo">Dev House</a>
+                    </div>
+                </nav>
+            </div>
         );
     }
 }
