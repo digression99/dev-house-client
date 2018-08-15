@@ -1,5 +1,8 @@
 
 import uuidv4 from 'uuid/v4';
+import axios from 'axios';
+
+import { getAccessToken } from './selectors';
 
 const fakeDatabase = {
     tasks : [
@@ -113,9 +116,21 @@ export const userLogin = (username, password) => delay(1000).then(() => {
     }
 });
 
-export const fetchTasks = (username) => delay(500).then(() => {
-    return fakeDatabase.tasks.filter(task => task.username === username);
-});
+export const fetchTasks = () => {
+
+    axios.defaults.headers.common['Authorization'] = `bearer ${getAccessToken()}`;
+    axios.get('https://dev-house.herokuapp.com/tasks').then(response => {
+        console.log(response.data);
+        return {
+            success : true,
+            tasks : response.data
+        }
+    });
+};
+
+// export const fetchTasks = (username) => delay(500).then(() => {
+//     return fakeDatabase.tasks.filter(task => task.username === username);
+// });
 
 export const fetchReviews = (username) => delay(500).then(() => {
     return fakeDatabase.reviews.filter(review => review.username === username);

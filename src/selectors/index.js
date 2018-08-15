@@ -4,3 +4,6 @@ export const getTasksByUsername = (state, username) => state.tasks.filter(task =
 export const getUsername = state => state.auth.username;
 
 export const getPartnerName = state => state.auth.partnerName;
+
+export const getAccessToken = () => state.auth.accessToken;
+
