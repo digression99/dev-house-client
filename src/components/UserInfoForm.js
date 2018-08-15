@@ -23,12 +23,15 @@ class UserInfoForm extends Component {
 
     async onInputSubmit() {
         console.log('fetching...');
-        try {
-            await this.props.fetchUserInfo(this.state.partnerName);
-            toast(`${this.state.partnerName} found!!`);
-        } catch (e) {
-            toast('no partner found.');
-        }
+        console.log('partner name : ', this.state.partnerName);
+        this.props.receiveUserInfo(this.state.partnerName);
+
+        // try {
+        //     await this.props.fetchUserInfo(this.state.partnerName);
+        //     toast(`${this.state.partnerName} found!!`);
+        // } catch (e) {
+        //     toast('no partner found.');
+        // }
     }
 
     render() {

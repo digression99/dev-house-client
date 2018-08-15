@@ -5,7 +5,7 @@ import ResultBox from './ResultBox';
 import UserInfoForm from './UserInfoForm';
 import Reviews from './Reviews';
 import ReviewForm from './ReviewForm';
-import {getPartnerName, getUsername, getAccessToken} from "../selectors";
+import {getPartnerName, getUsername, getAccessToken, getTasksByUsername} from "../selectors";
 
 import * as actions from '../actions';
 

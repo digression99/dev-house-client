@@ -11,6 +11,7 @@ import {ADD_REVIEW,
     RECEIVE_ACCESS_TOKEN
 } from "./constants";
 import * as api from '../api';
+import {getTasksByUsername} from "../selectors";
 
 export const setUser = (username) => ({ type : SET_USER, payload : username });
 export const unsetUser = () => ({ type : UNSET_USER });
@@ -26,14 +27,22 @@ export const succeedSaveReview = (data) => ({ type : SUCCEED_SAVE_REVIEW, payloa
 export const fetchTasks = (accessToken) => dispatch => api.fetchTasks(accessToken).then(data => dispatch(receiveTasks(data)));
 export const fetchReviews = (username) => dispatch => api.fetchReviews(username).then(data => dispatch(receiveReviews(data)));
 
-export const fetchUserInfo = (username) => dispatch => api.fetchUserInfo(username).then(data => {
-    if (data.success) {
-        dispatch(receiveUserInfo(username, data.tasks));
-    } else {
-        dispatch(failUserInfo());
-        throw new Error();
-    }
-});
+// export const fetchUserInfo = (username) => dispatch => api.fetchUserInfo(username).then(data => {
+//     if (data.success) {
+//         dispatch(receiveUserInfo(username, data.tasks));
+//     } else {
+//         dispatch(failUserInfo());
+//         throw new Error();
+//     }
+// });
+
+export const fetchUserInfo = (username) => {
+    // const tasks = getTasksByUsername(username);
+    // return {
+    //     type :
+    // }
+    //
+};
 
 export const userLogin = (username, password) => dispatch => api.userLogin(username, password).then(data => {
     if (data) {
