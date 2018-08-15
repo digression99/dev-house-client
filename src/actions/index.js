@@ -55,3 +55,10 @@ export const userLogin = (username, password) => dispatch => api.userLogin(usern
 export const saveReview = (username, text, tasks) => dispatch => api.saveReview(username, text, tasks).then(data => {
     dispatch(succeedSaveReview(data));
 });
+
+export const receiveAccessToken = (accessToken) => ({ type : RECEIVE_ACCESS_TOKEN, payload : { accessToken }});
+
+export const saveAccessToken = (accessToken) => async dispatch => {
+    await localStorage.setItem('access_token', accessToken);
+    dispatch(receiveAccessToken(accessToken));
+};

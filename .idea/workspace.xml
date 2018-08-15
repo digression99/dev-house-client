@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f34deb48-9e65-4e5b-9ee9-7dae1ff6837b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/WelcomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/WelcomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/auth.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,18 +26,6 @@
               <caret line="48" column="35" lean-forward="true" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PrivateRoute.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/PrivateRoute.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomePage.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WelcomePage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/pages/WelcomePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+            <state relative-caret-position="289">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="33" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -89,8 +79,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="56" column="3" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
+            <state relative-caret-position="557">
+              <caret line="58" column="81" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="81" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -98,14 +88,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Login.js">
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/reducers/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="459">
+              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="59" lean-forward="true" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -162,7 +158,6 @@
         <option value="$PROJECT_DIR$/src/reducers/review.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/components/TaskForm.js" />
-        <option value="$PROJECT_DIR$/src/reducers/auth.js" />
         <option value="$PROJECT_DIR$/src/components/ResultBox.js" />
         <option value="$PROJECT_DIR$/src/selectors/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/tasks.js" />
@@ -170,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/Login.js" />
         <option value="$PROJECT_DIR$/src/components/UserInfoForm.js" />
-        <option value="$PROJECT_DIR$/src/actions/constants.js" />
         <option value="$PROJECT_DIR$/src/components/TaskBox.js" />
         <option value="$PROJECT_DIR$/src/reducers/reviews.js" />
         <option value="$PROJECT_DIR$/src/api.js" />
@@ -181,9 +175,11 @@
         <option value="$PROJECT_DIR$/src/components/pages/MainPage.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/Header.js" />
-        <option value="$PROJECT_DIR$/src/actions/index.js" />
         <option value="$PROJECT_DIR$/src/components/pages/LoginPage.js" />
         <option value="$PROJECT_DIR$/src/components/pages/WelcomePage.js" />
+        <option value="$PROJECT_DIR$/src/actions/index.js" />
+        <option value="$PROJECT_DIR$/src/actions/constants.js" />
+        <option value="$PROJECT_DIR$/src/reducers/auth.js" />
       </list>
     </option>
   </component>
@@ -203,7 +199,8 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1200" />
   </component>
@@ -304,18 +301,18 @@
       <workItem from="1534315634196" duration="5545000" />
       <workItem from="1534321510300" duration="1965000" />
       <workItem from="1534323579104" duration="9131000" />
-      <workItem from="1534334698986" duration="3381000" />
+      <workItem from="1534334698986" duration="4022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24594000" />
+    <option name="totallyTimeSpent" value="25235000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1200" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.125" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -353,6 +350,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -517,13 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/tasks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -541,13 +534,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -572,6 +558,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="56" column="3" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/LoginPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -762,11 +741,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/WelcomePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="289">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="59" lean-forward="true" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="58" column="81" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
         </state>
       </provider>
     </entry>
