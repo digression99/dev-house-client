@@ -11,9 +11,13 @@ import * as actions from '../actions';
 
 class TaskContainer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.handleForceUpdate = this.handleForceUpdate.bind(this);
+    }
+
     async componentDidMount() {
         await this.props.fetchTasks(this.props.accessToken);
-        this.handleForceUpdate = this.handleForceUpdate.bind(this);
     }
 
     handleForceUpdate() {
