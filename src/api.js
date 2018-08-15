@@ -117,7 +117,7 @@ export const userLogin = (username, password) => delay(1000).then(() => {
 export const fetchTasks = (accessToken) => {
 
     axios.defaults.headers.common['Authorization'] = `bearer ${accessToken}`;
-    axios.get('https://dev-house.herokuapp.com/tasks').then(response => {
+    return axios.get('https://dev-house.herokuapp.com/tasks').then(response => {
         console.log(response.data);
         return {
             success : true,
