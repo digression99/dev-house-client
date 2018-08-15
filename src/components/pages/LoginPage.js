@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import { withRouter, Link } from 'react-router-dom';
 import Login from '../Login';
+
 
 class LoginPage extends Component {
 
@@ -11,18 +12,20 @@ class LoginPage extends Component {
     }
 
     googleLogin() {
-        console.log('login with google!');
+        {/*<Redirect to="http://dev-house.herokuapp.com/auth/google"/>;*/}
     }
 
     render() {
         return (
             <div>
+                <a href="http://dev-house.herokuapp.com/auth/google">Login With Google</a>
+                {/*<Link to="http://dev-house.herokuapp.com/auth/google">Login With Google</Link>*/}
                 {/*<button onClick={this.googleLogin}>Login With Google</button>*/}
-                <Login />
+                {/*<Login />*/}
             </div>
         );
     }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);
 

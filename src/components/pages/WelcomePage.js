@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class WelcomePage extends Component {
+
+    componentDidMount() {
+        console.log('welcome page!');
+        console.log(this.props.history);
+        console.log(this.props.location);
+    }
 
     render() {
         return (
@@ -12,5 +19,4 @@ class WelcomePage extends Component {
     }
 }
 
-export default WelcomePage;
-
+export default withRouter(WelcomePage);
