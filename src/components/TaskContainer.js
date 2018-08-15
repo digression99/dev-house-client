@@ -15,10 +15,7 @@ class TaskContainer extends Component {
                 <div className="section">
                     <div className="row">
                         <div className="col s6">
-                            {this.props.username ?
-                                <ResultBox username={this.props.username} /> :
-                                <div>Please login.</div>
-                            }
+                            <ResultBox username={this.props.username} />
                         </div>
                         <div className="col s6">
                             {this.props.partnerName ?
