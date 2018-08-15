@@ -17,6 +17,7 @@ class App extends Component {
 
     async componentDidMount() {
         await this.props.fetchTasks();
+        await this.props.fetchReviews();
     }
 
     render() {
@@ -38,18 +39,11 @@ class App extends Component {
                         </div>
                     </div>
                     <ReviewForm/>
-                    <Reviews tasks={this.props.tasks}/>
+                    <Reviews />
                 </div>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    console.log('in app, state : ', state);
-    return {
-        tasks : state.tasks
-    };
-};
-
-export default connect(mapStateToProps, actions)(App);
+export default connect(null, actions)(App);

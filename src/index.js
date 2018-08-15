@@ -3,90 +3,18 @@ import ReactDOM from 'react-dom';
 import 'materialize-css/dist/css/materialize.min.css';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import reducers from './reducers';
-
-const preloadedState = {
-    reviews : [
-        {
-            username: "kim",
-            text: "my day sucks",
-            tasks : [{
-                username: "kim",
-                taskName: "running",
-                comment: "fuck",
-                timestamp: 1010
-            }]
-        },
-        {
-            username: "shim",
-            text: "my day blablab",
-            tasks : [{
-                username: "shim",
-                taskName: "running",
-                comment: "fuck",
-                timestamp: 1010
-            }]
-        }
-    ],
-    tasks : [
-        {
-        username: "kim",
-        taskName: "running",
-        comment: "fuck",
-        timestamp: 1010
-        },
-        {
-            username: "shim",
-            taskName: "running",
-            comment: "fuck",
-            timestamp: 1020
-        },
-        {
-            username: "kim",
-            taskName: "running",
-            comment: "fuck",
-            timestamp: 1030
-        },
-        {
-            username: "shim",
-            taskName: "blabla",
-            comment: "fuck",
-            timestamp: 1030
-        },
-        {
-            username: "kim",
-            taskName: "fucufudkf",
-            comment: "fuck",
-            timestamp: 1010
-        },
-        {
-            username: "shim",
-            taskName: "running",
-            comment: "fuck",
-            timestamp: 1020
-        },
-        {
-            username: "kim",
-            taskName: "running",
-            comment: "fuck",
-            timestamp: 1030
-        },
-        {
-            username: "shim",
-            taskName: "blabla",
-            comment: "fuck",
-            timestamp: 1030
-        }
-        ]
-};
+import * as actions from './actions';
 
 ReactDOM.render(
-    <Provider store={createStore(reducers, preloadedState)}>
+    <Provider store={createStore(reducers, {}, applyMiddleware(thunk, logger))}>
         <App/>
     </Provider>,
     document.getElementById('root'));

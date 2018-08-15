@@ -36,6 +36,7 @@ class Login extends Component {
     }
 
     render() {
+        console.log('in login, props : ', this.props);
         return (
             <div className="center-align">
                 <div className="col s6">
@@ -60,6 +61,5 @@ class Login extends Component {
 const mapStateToProps = state => ({
     username : getUsername(state)
 });
-
 
 export default connect(mapStateToProps, actions)(Login);
