@@ -4,6 +4,10 @@ import TaskContainer from '../TaskContainer';
 
 class MainPage extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>

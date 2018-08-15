@@ -13,12 +13,18 @@ class TaskContainer extends Component {
 
     async componentDidMount() {
         await this.props.fetchTasks(this.props.accessToken);
+        this.handleForceUpdate = this.handleForceUpdate.bind(this);
+    }
+
+    handleForceUpdate() {
+        this.forceUpdate();
     }
 
     render() {
         return (
             <div>
                 <div className="section">
+
                     <div className="row">
                         <div className="col s6">
                             <ResultBox username={this.props.username} />
@@ -32,6 +38,9 @@ class TaskContainer extends Component {
                                 </div>
                             }
                         </div>
+                    </div>
+                    <div className="section">
+                        <button onClick={this.handleForceUpdate}>Refresh</button>
                     </div>
                     <ReviewForm/>
                     <Reviews />
