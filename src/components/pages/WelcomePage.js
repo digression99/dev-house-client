@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import URL from 'url-parse';
@@ -44,6 +44,9 @@ class WelcomePage extends Component {
             <div>
                 WelcomePage!
                 Welcome Welcome!!!!!!!!!!!!
+                <div>
+                    <Link to="/login">Login</Link>
+                </div>
             </div>
         );
     }
