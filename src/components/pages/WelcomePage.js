@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import URL from 'url-parse';
 
 import * as actions from '../../actions';
 
@@ -10,12 +12,14 @@ class WelcomePage extends Component {
         console.log('welcome page!');
         console.log(this.props.history);
         console.log(this.props.location);
-        const url = new URL(this.props.location.href);
+        console.log('pathname : ', this.props.location.pathname);
+        const url = new URL(this.props.location.pathname);
         const searchParams = new URLSearchParams(url.search);
         if (searchParams.has('access_token')) {
+            console.log('access token exist.');
             console.log(searchParams.get('access_token'));
             const accessToken = searchParams.get('access_token');
-            await saveAccessToken(accessToken);
+            await this.props.saveAccessToken(accessToken);
             this.props.history.push('/dashboard');
         }
     }
@@ -30,4 +34,6 @@ class WelcomePage extends Component {
     }
 }
 
-export default connect(null, actions)(withRouter(WelcomePage));
+export default compose(
+    connect(null, actions)
+)(withRouter(WelcomePage));

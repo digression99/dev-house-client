@@ -7,18 +7,10 @@ import {ADD_REVIEW,
     RECEIVE_REVIEWS,
     RECEIVE_USER_INFO,
     FAIL_USER_INFO,
-    SUCCEED_SAVE_REVIEW
+    SUCCEED_SAVE_REVIEW,
+    RECEIVE_ACCESS_TOKEN
 } from "./constants";
 import * as api from '../api';
-
-// export const addReview = (text, username, tasks) => ({
-//     type : ADD_REVIEW,
-//     payload : {
-//         text,
-//         username,
-//         tasks
-//     }
-// });
 
 export const setUser = (username) => ({ type : SET_USER, payload : username });
 export const unsetUser = () => ({ type : UNSET_USER });
