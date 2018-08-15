@@ -1,20 +1,37 @@
 import React, { Component } from 'react';
-import {getUsername} from "../selectors";
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { Link, NavLink, withRouter } from 'react-router-dom';
+
+import {getUsername} from "../selectors";
 import * as actions from '../actions';
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout() {
+        this.props.unsetUser();
+        this.props.history.push('/');
+    }
+
     render() {
         return (
             <div>
                 <nav>
                     <div className="nav-wrapper">
-                        <a href="#" className="brand-logo">Dev House</a>
+                        <Link to="/" className="brand-logo">Dev House</Link>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
                                 {
-                                    this.props.username ? <a href="https://www.naver.com">Logout</a>
-                                        : <a href="https://www.google.com">Login</a>
+                                    this.props.isAuthenticated ?
+
+                                        <button onClick={this.handleLogout}>Logout</button> :
+                                        <NavLink to="/login">Login</NavLink>
                                 }
                             </li>
                         </ul>
@@ -26,7 +43,10 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-    username : getUsername(state)
+    isAuthenticated : !!state.auth.username
 });
 
-export default connect(mapStateToProps, actions)(Header);
+export default compose(
+    connect(mapStateToProps, actions),
+)(withRouter(Header));
+// export default connect(mapStateToProps, actions)(Header);
