@@ -6,12 +6,9 @@ class ResultBox extends Component {
 
     constructor(props) {
         super();
-
-        console.log('resultbox props : ', props);
     }
 
     render() {
-        console.log('resultbox props in render : ', this.props);
         return (
             <div>
                 <h1>{this.props.username}</h1>
