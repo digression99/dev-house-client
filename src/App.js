@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import './App.css';
 import ResultBox from './components/ResultBox';
 import Header from './components/Header';
@@ -8,31 +10,16 @@ import Reviews from './components/Reviews';
 class App extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            tasks: [{
-                user: "bb",
-                taskName: "running",
-                comment: "fuck",
-                timestamp: 1010
-            },
-                {
-                    user: "aa",
-                    taskName: "running",
-                    comment: "fuck",
-                    timestamp: 1020
-                },
-                {
-                    user: "ss",
-                    taskName: "running",
-                    comment: "fuck",
-                    timestamp: 1030
-                }]
-        }
     }
 
+    componentDidMount() {
+
+    }
 
     render() {
+
+        console.log('app props : ', this.props.tasks);
+
         return (
             <div className="container">
                 <div className="section">
@@ -41,18 +28,29 @@ class App extends Component {
                 <div className="section">
                     <div className="row">
                         <div className="col s6">
-                            <ResultBox username={"kim"} tasks={this.state.tasks}/>
+                            <ResultBox username={"kim"} tasks={this.props.tasks}/>
                         </div>
                         <div className="col s6">
-                            <ResultBox username={"shim"} tasks={this.state.tasks}/>
+                            <ResultBox username={"shim"} tasks={this.props.tasks}/>
                         </div>
                     </div>
                     <ReviewForm/>
-                    <Reviews tasks={this.state.tasks}/>
+                    <Reviews tasks={this.props.tasks}/>
                 </div>
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => {
+    console.log('in app, state : ', state);
+    return {
+        tasks : state.tasks
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    getTasks : () => dispatch(getTasks())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

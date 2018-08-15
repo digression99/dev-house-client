@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from'react-redux';
 
 class ReviewForm extends Component {
 
@@ -33,6 +34,8 @@ class ReviewForm extends Component {
         );
     }
 }
+
+
 
 export default ReviewForm;
 
