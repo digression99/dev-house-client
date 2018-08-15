@@ -1,9 +1,10 @@
-import { RECEIVE_TASKS } from "../actions/constants";
+import { RECEIVE_TASKS, RECEIVE_USER_INFO } from "../actions/constants";
 
 export default (state = [], action) => {
     switch (action.type) {
         case RECEIVE_TASKS:
-            return action.payload;
+        case RECEIVE_USER_INFO :
+            return [...state, ...action.payload.tasks];
         default:
             return state;
     }

@@ -73,16 +73,28 @@ const fakeDatabase = {
                 timestamp: 1010
             }]
         }
-    ]
+    ],
+    users : ["kim", "shim", "chim"]
 };
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-export const fetchTasks = () => delay(500).then(() => {
-    return fakeDatabase.tasks;
+export const fetchTasks = (username) => delay(500).then(() => {
+    return fakeDatabase.tasks.filter(task => task.username === username);
 });
 
-export const fetchReviews = () => delay(500).then(() => {
-    return fakeDatabase.reviews;
+export const fetchReviews = (username) => delay(500).then(() => {
+    return fakeDatabase.reviews.filter(review => review.username === username);
 });
 
+export const fetchUserInfo = (username) => delay(500).then(() => {
+    console.log(' in api fetch user info.');
+    if (fakeDatabase.users.indexOf(username) > -1) {
+        return {
+            success : true,
+            tasks : fakeDatabase.tasks.filter(task => task.username === username)
+        }
+    } else {
+        return { success : false};
+    }
+});

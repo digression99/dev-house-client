@@ -11,6 +11,7 @@ class ResultBox extends Component {
     }
 
     render() {
+        console.log('in result box, props : ', this.props);
         return (
             <div>
                 <h1>{this.props.username}</h1>
@@ -20,8 +21,8 @@ class ResultBox extends Component {
     }
 }
 
-const mapStateToProps = (store, ownProps) => ({
-    tasks : getTasksByUsername(store, ownProps.username)
+const mapStateToProps = (state, ownProps) => ({
+    tasks : getTasksByUsername(state, ownProps.username)
 });
 
 export default connect(mapStateToProps, null)(ResultBox);

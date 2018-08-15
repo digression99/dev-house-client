@@ -1,23 +1,26 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-
+import { ToastContainer, toast } from 'react-toastify';
 import './App.css';
-import ResultBox from './components/ResultBox';
 import Header from './components/Header';
-import ReviewForm from "./components/ReviewForm";
-import Reviews from './components/Reviews';
 import Login from './components/Login';
 
 import * as actions from './actions';
+import {getUsername, getPartnerName} from "./selectors";
+import TaskContainer from './components/TaskContainer';
 
 class App extends Component {
     constructor(props) {
         super(props);
+
+        this.notify = this.notify.bind(this);
     }
 
     async componentDidMount() {
-        await this.props.fetchTasks();
-        await this.props.fetchReviews();
+    }
+
+    notify(message) {
+        toast(message);
     }
 
     render() {
@@ -26,24 +29,18 @@ class App extends Component {
                 <div className="section">
                     <Header/>
                 </div>
-                <div className="section">
-                    <Login />
-                </div>
-                <div className="section">
-                    <div className="row">
-                        <div className="col s6">
-                            <ResultBox username={"kim"} />
-                        </div>
-                        <div className="col s6">
-                            <ResultBox username={"shim"}/>
-                        </div>
-                    </div>
-                    <ReviewForm/>
-                    <Reviews />
+                <div>
+                    <button onClick={() => this.notify("kim!")}>Click</button>
+                    {this.props.username ? <TaskContainer /> : <Login />}
                 </div>
             </div>
         );
     }
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = state => ({
+    username : getUsername(state),
+    partnerName : getPartnerName(state)
+});
+
+export default connect(mapStateToProps, actions)(App);

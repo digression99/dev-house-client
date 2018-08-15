@@ -1,11 +1,22 @@
-import {SET_USER, UNSET_USER} from "../actions/constants";
+import { SET_USER, UNSET_USER, RECEIVE_USER_INFO } from "../actions/constants";
 
-export default (state = "", action) => {
+export default (state = { username : '', partnerName : ''}, action) => {
     switch (action.type) {
         case SET_USER:
-            return action.payload;
+            return {
+                ...state,
+                username : action.payload
+            };
         case UNSET_USER:
-            return '';
+            return {
+                username : '',
+                partnerName : ''
+            };
+        case RECEIVE_USER_INFO:
+            return {
+                ...state,
+                partnerName : action.payload.username
+            };
         default :
             return state;
     }

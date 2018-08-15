@@ -19,24 +19,19 @@ class Login extends Component {
     }
 
     onInputChange(event) {
-        console.log('username : ', event.target.value);
-        console.log('username state : ', this.state.username);
         this.setState({username : event.target.value});
     }
 
-    onLogin(event) {
-        console.log('button clicked.');
-        console.log(event.target);
+    async onLogin(event) {
         this.props.setUser(this.state.username);
+        await this.props.fetchTasks(this.state.username);
     }
 
     onLogout(event) {
-        console.log('logout!');
         this.props.unsetUser();
     }
 
     render() {
-        console.log('in login, props : ', this.props);
         return (
             <div className="center-align">
                 <div className="col s6">
@@ -47,7 +42,6 @@ class Login extends Component {
                         </div>
                         : <button onClick={this.onLogout}>Logout</button>
                     }
-
                 </div>
                 <div>{ this.props.username ?
                     <div>Logged in user : {this.props.username}</div> :
