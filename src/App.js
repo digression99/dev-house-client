@@ -21,9 +21,14 @@ import LoginPage from './components/pages/LoginPage';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.handleForceUpdate = this.handleForceUpdate.bind(this);
     }
 
     async componentDidMount() {
+    }
+
+    handleForceUpdate() {
+        this.forceUpdate();
     }
 
     render() {
@@ -40,6 +45,9 @@ class App extends Component {
                         </Switch>
                     </div>
                 </BrowserRouter>
+                <div className="section">
+                    <button onClick={this.handleForceUpdate}>Refresh</button>
+                </div>
                 <ToastContainer />
             </div>
         );
