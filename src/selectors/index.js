@@ -1,5 +1,5 @@
 
-export const getTasksByUsername = (state, username) => state.tasks.filter(task => task.username === username);
+export const getTasksByUsername = (state, userName) => state.tasks.filter(task => task.userName === userName);
 
 export const getUsername = state => state.auth.username;
 
