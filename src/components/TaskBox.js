@@ -5,7 +5,7 @@ import Task from './Task';
 class TaskBox extends Component {
 
     constructor(props) {
-        super();
+        super(props);
     }
 
     render() {
@@ -13,7 +13,7 @@ class TaskBox extends Component {
             <div className="list-item-container">
                 <ul className="collection">
                     {this.props.tasks.map(task =>
-                        <li className="collection-item center-align" key={task.timestamp}>
+                        <li className="collection-item center-align" key={parseInt(Math.random() * 10000)}>
                             <Task {...task} />
                         </li>
                     )}
